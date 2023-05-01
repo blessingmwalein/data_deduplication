@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\FileReportController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -35,6 +36,7 @@ Route::middleware([
 
     Route::resource('/user/files', FileController::class)->except(['create', 'edit', 'index', 'update']);
     Route::post('/user/files/{file}', [FileController::class, 'update']);
+    Route::get('/admin/downloadExcel', [FileReportController::class, 'export']);
     Route::post('users', [UserController::class, 'store']);
     Route::post('users/{user}', [UserController::class, 'update']);
     Route::delete('users/{user}', [UserController::class, 'destroy']);

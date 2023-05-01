@@ -52,7 +52,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody v-if="selectedFolder">
                             <tr v-for="file in selectedFolder.files" >
                                
                                 <td>

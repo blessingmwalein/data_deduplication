@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FileReportExport;
 use App\Models\FileReport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FileReportController extends Controller
 {
@@ -35,7 +37,11 @@ class FileReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    }
+
+    public function export()
+    {
+        return Excel::download(new FileReportExport, 'filereport.xlsx');
     }
 
     /**
